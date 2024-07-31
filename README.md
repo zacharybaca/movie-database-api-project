@@ -1,9 +1,22 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# movie-database-api-project
+# API Endpoint
+
+    - https://api.api-ninjas.com/v1/passwordgenerator
+
+## Parameters
+
+    - length  optional
+        - Length of password in characters. If not set, a default value of 16 is used.
+
+    - exclude_numbers  optional
+        - Whether to exclude numbers from the password. Must be either true or false. If not set, a default value of false will be used.
+
+    - exclude_special_chars  optional
+        - Whether to exclude special characters(!@#$%^&*()) from the password. Must be either true or false. If not set, a default value of false will be used.
+
+## Headers
+
+    - X-Api-Key  required
+        - API Key associated with your account.
