@@ -2,15 +2,15 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const MovieDatabaseContext = React.createContext();
+const PasswordGeneratorContext = React.createContext();
 
-function MovieDatabaseContextProvider(props) {
+function PasswordGeneratorContextProvider(props) {
 
     return (
-        <MovieDatabaseContext.Provider>
+        <PasswordGeneratorContext.Provider>
             {props.children}
-        </MovieDatabaseContext.Provider>
+        </PasswordGeneratorContext.Provider>
     )
 }
 
-export {MovieDatabaseContext, MovieDatabaseContextProvider}
+export {PasswordGeneratorContext, PasswordGeneratorContextProvider}
