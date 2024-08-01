@@ -1,9 +1,9 @@
 import React from "react";
-import { GeneratedPasswordContext } from "../../context/passwordGeneratorContext";
+import { PasswordGeneratorContext } from "../../context/passwordGeneratorContext";
 import './generated-password.css';
 
 export default function GeneratedPassword() {
-    const context = React.useContext(GeneratedPasswordContext);
+    const context = React.useContext(PasswordGeneratorContext);
     
     return (
         <div id="password-container">

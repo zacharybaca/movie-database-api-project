@@ -8,15 +8,18 @@ function App() {
   
 
   return (
-    <div id="app-container">
-      <PasswordGeneratorContextProvider>
-        <GeneratedPassword />
-      </PasswordGeneratorContextProvider>
-      
-      <PasswordCriteriaContextProvider>
-        <PasswordCriteria />
-      </PasswordCriteriaContextProvider>
+    <div id="main-container">
+      <div id="app-container">
+        <PasswordGeneratorContextProvider>
+          <GeneratedPassword />
+        </PasswordGeneratorContextProvider>
+        
+        <PasswordCriteriaContextProvider>
+          <PasswordCriteria />
+        </PasswordCriteriaContextProvider>
+      </div>
     </div>
+    
   )
 }
 
