@@ -1,12 +1,3 @@
-#app-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    min-width: 75%;
-    min-height: 60vh;
-    border: 3px solid orange;
-}
 
 #main-container {
     display: flex;
@@ -17,4 +8,7 @@
     max-width: 100%;
     min-height: 100vh;
     border: 4px solid black;
+    background-image: url("./assets/password-image.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
