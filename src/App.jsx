@@ -3,6 +3,7 @@ import PasswordCriteria from "./components/PasswordCriteria/PasswordCriteria";
 import PasswordChecker from "./components/PasswordChecker/PasswordChecker";
 import { PasswordGeneratorContextProvider } from './context/passwordGeneratorContext';
 import { PasswordCriteriaContextProvider } from './context/passwordCriteriaContext';
+import { Routes, Route } from "react-router-dom";
 import './App.css'
 
 function App() {
@@ -10,18 +11,22 @@ function App() {
 
   return (
     <div id="main-container">
-      <PasswordChecker />
-      {/* <div id="app-container">
-        <PasswordGeneratorContextProvider>
-          <GeneratedPassword />
-        </PasswordGeneratorContextProvider>
-        
-        <PasswordCriteriaContextProvider>
-          <PasswordCriteria />
-        </PasswordCriteriaContextProvider>
-      </div> */}
+      <Routes>
+        <Route path="/" element={<PasswordChecker />} />
+        <Route path="/change-password" element={
+          <>
+            <PasswordGeneratorContextProvider>
+              <GeneratedPassword />
+            </PasswordGeneratorContextProvider>
+
+            <PasswordCriteriaContextProvider>
+              <PasswordCriteria />
+            </PasswordCriteriaContextProvider>
+          </>
+        }
+        />
+      </Routes>
     </div>
-    
   )
 }
 
