@@ -26,13 +26,15 @@ export default function PasswordChecker() {
         feedback: result.feedback,
         description: result.description
        })
+
+       setPassword('');
     }
 
     return (
         <div id="password-checker-main">
              <div id="password-checker-container">
                 <h1>Is Your Password Secure Enough?</h1>
-                <input type="text" id="check-password" name="password" onChange={handleChange} value={password} placeholder="Enter Password To Check" />
+                <input type="password" id="check-password" name="password" onChange={handleChange} value={password} placeholder="Enter Password To Check" />
                 <button type="button" onClick={checkIfExposed} disabled={!password}>Check Password</button>
                 {result.score && result.score < 60 && <button type="button" onClick={() => navigate("/change-password")}>Change Password</button>}
             </div>
