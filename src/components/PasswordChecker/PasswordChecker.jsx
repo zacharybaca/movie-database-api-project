@@ -39,9 +39,10 @@ export default function PasswordChecker() {
                 {result.score && result.score < 60 && <button type="button" onClick={() => navigate("/change-password")}>Change Password</button>}
             </div>
             <div id="result-container">
-            {result.score && <h3>Score: {result.score}</h3>}
-            {result.feedback.length > 0 && <ul>{result.feedback.map((statement, index) => <li key={index}>{statement}</li>)}</ul>}
-            {result.description && <h3>Description: {result.description}</h3>}
+            <h1>Results</h1>
+            {result.score && <h3><span id="score-span">Score:</span> {result.score}</h3>}
+            {result.feedback.length > 0 && <ul>{result.feedback.map((statement, index) => <li key={index}><span id="feedback-span">Suggestion {index + 1}:</span> {statement}</li>)}</ul>}
+            {result.description && <h3><span id="description-span">Description:</span> {result.description}</h3>}
             </div>
         </div>
        
