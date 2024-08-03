@@ -10,16 +10,16 @@ export default function PasswordCriteria() {
             <h1>Select Your Password Requirements</h1>
             <form id="criteria-form" name="criteria-form">
                 <div id="numbers-container">
-                    <label htmlFor="numbers">Require Numbers </label>
-                    <input type="checkbox" id="numbers" name="numbers" />
+                    <label htmlFor="numbersRequired">Require Numbers </label>
+                    <input type="checkbox" id="numbers" name="numbersRequired" onChange={context.handleChange} checked={context.criteria.numbersRequired}/>
                 </div>
                 <div id="special-container">
-                    <label htmlFor="special">Require Special Characters </label>
-                    <input type="checkbox" id="special" name="special" />
+                    <label htmlFor="specialCharactersRequired">Require Special Characters </label>
+                    <input type="checkbox" id="special" name="specialCharactersRequired" onChange={context.handleChange} checked={context.criteria.specialCharactersRequired}/>
                 </div>
                 <div id="amount-container">
-                    <label htmlFor="amount">Number of Characters Required </label>
-                    <input type="range" id="amount" name="amount" min="5" max="20" step="1" />
+                    <label htmlFor="passwordLength">Number of Characters Required </label>
+                    <input type="range" id="amount" name="passwordLength" min="5" max="20" step="1" onChange={context.handleChange} value={context.criteria.passwordLength}/>
                 </div>
             </form>
             <div id="button-container">
