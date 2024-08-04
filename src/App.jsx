@@ -13,21 +13,24 @@ function App() {
     <div id="main-container">
       <Routes>
         <Route path="/" element={<PasswordChecker />} />
-        <Route path="/change-password" element={
-          <>
-            <PasswordGeneratorContextProvider>
-              <GeneratedPassword />
-            </PasswordGeneratorContextProvider>
-
-            <PasswordCriteriaContextProvider>
-              <PasswordCriteria />
-            </PasswordCriteriaContextProvider>
-          </>
-        }
+        <Route
+          path="/change-password"
+          element={
+            <>
+              
+              <PasswordCriteriaContextProvider>
+                <PasswordGeneratorContextProvider>
+                  <GeneratedPassword />
+                  <PasswordCriteria />
+                </PasswordGeneratorContextProvider>
+              </PasswordCriteriaContextProvider>
+              
+            </>
+          }
         />
       </Routes>
     </div>
-  )
+  );
 }
 
 export default App

@@ -10,7 +10,7 @@ function PasswordCriteriaContextProvider(props) {
     const [criteria, setCriteria] = React.useState({
         numbersRequired: false,
         specialCharactersRequired: false,
-        passwordLength: 0
+        passwordLength: 5
     });
 
     function handleChange(e) {
@@ -20,13 +20,22 @@ function PasswordCriteriaContextProvider(props) {
             ...prevState,
             [name]: e.target.type === "checkbox" ? checked : value
         }))
-        console.log(`Numbers Required: ${criteria.numbersRequired}, Special Characters Required: ${criteria.specialCharactersRequired}, Password Length: ${criteria.passwordLength}`)
     }
+
+    function copyPassword(valueOfPassword) {
+        navigator.clipboard.writeText(valueOfPassword);
+        alert("Successfully Copied Password");
+    }
+
+     console.log(
+       `Numbers Required: ${criteria.numbersRequired}, Special Characters Required: ${criteria.specialCharactersRequired}, Password Length: ${criteria.passwordLength}`
+     );
 
     return (
         <PasswordCriteriaContext.Provider value={{
             criteria: criteria,
-            handleChange: handleChange
+            handleChange: handleChange,
+            copyPassword: copyPassword
         }}>
             {props.children}
         </PasswordCriteriaContext.Provider>
