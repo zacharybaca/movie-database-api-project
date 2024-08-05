@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import QRCode from "qrcode";
+
 import { PasswordCriteriaContext } from "./passwordCriteriaContext";
 
 const PasswordGeneratorContext = React.createContext();
@@ -10,7 +10,7 @@ const PasswordGeneratorContext = React.createContext();
 function PasswordGeneratorContextProvider(props) {
     const context = React.useContext(PasswordCriteriaContext);
     const [securePassword, setSecurePassword] = React.useState("");
-    const [qrCode, setQRCode] = React.useState("");
+    
 
     
     const generateSecurePassword = async() => {
@@ -26,23 +26,11 @@ function PasswordGeneratorContextProvider(props) {
         const result = await response.json();
         setSecurePassword(result.random_password);
     }
-    
-    const generateQRCode = async() => {
-         try {
-          const generatedCode = await QRCode.toDataURL(securePassword);
-           console.log(generatedCode);
-           setQRCode(generatedCode);
-         } catch (err) {
-           console.error(err);
-         }
-    }
-
+     
     return (
         <PasswordGeneratorContext.Provider value = {{
             generate: generateSecurePassword,
-            generatedPassword: securePassword,
-            generateQRCode: generateQRCode,
-            qrCode: qrCode
+            generatedPassword: securePassword
         }}>
             {props.children}
         </PasswordGeneratorContext.Provider>

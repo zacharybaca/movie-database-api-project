@@ -1,0 +1,28 @@
+#qr-code-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 70%;
+    min-height: 30vh;
+    opacity: 0.8;
+    background-color: gold;
+}
+
+#back-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 50%;
+    min-height: 5vh;
+}
+
+#check-another-button {
+    height: 3vh;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+#check-another-button:hover {
+    cursor: pointer;
+}

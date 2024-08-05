@@ -65,7 +65,7 @@ export default function PasswordCriteria() {
             <Link
               to="/generate-qr-code"
               id="qr-link"
-              onClick={passwordContext.generateQRCode}>
+            >
               Generate QR Code
             </Link>
           </button>
