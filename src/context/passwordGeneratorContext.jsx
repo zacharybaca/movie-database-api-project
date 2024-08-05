@@ -31,6 +31,7 @@ function PasswordGeneratorContextProvider(props) {
          try {
           const generatedCode = await QRCode.toDataURL(securePassword);
            console.log(generatedCode);
+           setQRCode(generatedCode);
          } catch (err) {
            console.error(err);
          }
@@ -40,7 +41,8 @@ function PasswordGeneratorContextProvider(props) {
         <PasswordGeneratorContext.Provider value = {{
             generate: generateSecurePassword,
             generatedPassword: securePassword,
-            generateQRCode: generateQRCode
+            generateQRCode: generateQRCode,
+            qrCode: qrCode
         }}>
             {props.children}
         </PasswordGeneratorContext.Provider>
