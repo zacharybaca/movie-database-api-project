@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import QRCode from "qrcode";
 import { PasswordCriteriaContext } from "./passwordCriteriaContext";
 
 const PasswordGeneratorContext = React.createContext();
@@ -27,18 +28,12 @@ function PasswordGeneratorContextProvider(props) {
     }
     
     const generateQRCode = async() => {
-        const response = await fetch(
-          `https://request-forwarder.onrender.com?url=https://api.api-ninjas.com/v1/qrcode?format=jpeg&data=${securePassword}&size=300x300&fg_color=FFD700&bg_color=0000FF`,
-          {
-            method: "GET",
-            headers: {
-              "X-Api-Key": "vH/WOl57zKNu7HSmUdgiCQ==huhnSVkUG5Wql9hO",
-              "Accept": "image/jpeg"
-            },
-          }
-        );
-        const result = await response.json();
-        console.log('QR Result: ', result);
+         try {
+          const generatedCode = await QRCode.toDataURL(securePassword);
+           console.log(generatedCode);
+         } catch (err) {
+           console.error(err);
+         }
     }
 
     return (
