@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://zacharybaca.github.io/password-generator-api-project/",
+  "homepage": "/https://zacharybaca.github.io/password-generator-api-project/#",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
