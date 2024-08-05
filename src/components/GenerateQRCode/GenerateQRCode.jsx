@@ -8,7 +8,7 @@ export default function GenerateQRCode() {
     
     return (
         <div id="qr-code-container">
-
+            <img src={context.qrCode} alt="qr code" />
         </div>
     )
 }
