@@ -1,50 +1,64 @@
 import "./password-checker.css";
-import { passwordScorer } from 'password-scorer';
-import React from 'react';
 import { useNavigate } from "react-router-dom";
+import { PasswordCheckerContext } from "../../context/passwordCheckerContext";
+import React from "react";
 
 export default function PasswordChecker() {
-    const [result, setResult] = React.useState({
-        score: '',
-        feedback: [],
-        description: ''
-    });
-
-    const [password, setPassword] = React.useState('')
-
     const navigate = useNavigate();
-
-    function handleChange(e) {
-        const {value} = e.target;
-        setPassword(value);
-    }
-
-    const checkIfExposed = async () => {
-       const result = await passwordScorer(password, 'en');
-       setResult({
-        score: result.score,
-        feedback: result.feedback,
-        description: result.description
-       })
-
-       setPassword('');
-    }
+    const context = React.useContext(PasswordCheckerContext);
 
     return (
-        <div id="password-checker-main">
-             <div id="password-checker-container">
-                <h1>Is Your Password Secure Enough?</h1>
-                <input type="password" id="check-password" name="password" onChange={handleChange} value={password} placeholder="Enter Password To Check" autoFocus/>
-                <button type="button" onClick={checkIfExposed} disabled={!password}>Check Password</button>
-                {result.score && result.score < 60 && <button type="button" onClick={() => navigate("/change-password")}>Change Password</button>}
-            </div>
-            <div id="result-container">
-            {result.score !== "" ? <h1>Results</h1> : ""}
-            {result.score && <h3><span id="score-span">Score:</span> {result.score}</h3>}
-            {result.feedback.length > 0 && <ul>{result.feedback.map((statement, index) => <li key={index}><span id="feedback-span">Suggestion {index + 1}:</span> {statement}</li>)}</ul>}
-            {result.description && <h3><span id="description-span">Description:</span> {result.description}</h3>}
-            </div>
+      <div id="password-checker-main">
+        <div id="password-checker-container">
+          <h1>Is Your Password Secure Enough?</h1>
+          <input
+            type="password"
+            id="check-password"
+            name="password"
+            onChange={context.handleChange}
+            value={context.password}
+            hidden={context.result.score && context.result.score < 60}
+            placeholder="Enter Password To Check"
+            autoFocus
+          />
+          <button type="button" onClick={context.checkIfExposed} disabled={!context.password}>
+            Check Password
+          </button>
+          {context.result.score && context.result.score < 60 && (
+            <button type="button" onClick={() => navigate("/change-password")}>
+              Change Password
+            </button>
+          )}
+          {context.result.score && context.result.score < 60 && (
+            <button type="button">
+              Check Another Password
+            </button>
+          )}
         </div>
-       
-    )
+        <div id="result-container">
+          {context.result.score !== "" ? <h1>Results</h1> : ""}
+          {context.result.score && (
+            <h3>
+              <span id="score-span">Score:</span> {context.result.score}
+            </h3>
+          )}
+          {context.result.feedback.length > 0 && (
+            <ul>
+              {context.result.feedback.map((statement, index) => (
+                <li key={index}>
+                  <span id="feedback-span">Suggestion {index + 1}:</span>{" "}
+                  {statement}
+                </li>
+              ))}
+            </ul>
+          )}
+          {context.result.description && (
+            <h3>
+              <span id="description-span">Description:</span>{" "}
+              {context.result.description}
+            </h3>
+          )}
+        </div>
+      </div>
+    );
 }

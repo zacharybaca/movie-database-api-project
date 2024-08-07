@@ -4,6 +4,7 @@ import PasswordChecker from "./components/PasswordChecker/PasswordChecker";
 import GenerateQRCode from "./components/GenerateQRCode/GenerateQRCode";
 import { PasswordGeneratorContextProvider } from './context/passwordGeneratorContext';
 import { PasswordCriteriaContextProvider } from './context/passwordCriteriaContext';
+import { PasswordCheckerContextProvider } from './context/passwordCheckerContext';
 import { Routes, Route } from "react-router-dom";
 import './App.css'
 
@@ -13,7 +14,13 @@ function App() {
   return (
     <div id="main-container">
       <Routes>
-        <Route exact path="/" element={<PasswordChecker />} />
+        <Route path="/" element={
+          <>
+            <PasswordCheckerContextProvider>
+              <PasswordChecker />
+            </PasswordCheckerContextProvider>
+          </>
+        } />
         <Route path="/generate-qr-code" element={
           <>
             <PasswordGeneratorContextProvider>
