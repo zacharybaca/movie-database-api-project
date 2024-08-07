@@ -30,19 +30,19 @@ export default function PasswordChecker() {
             </button>
           )}
           {context.result.score && context.result.score < 60 && (
-            <button type="button">
+            <button type="button" id="check-another-password" onClick={() => context.checkAnotherPassword('check-another-password')}>
               Check Another Password
             </button>
           )}
         </div>
         <div id="result-container">
-          {context.result.score !== "" ? <h1>Results</h1> : ""}
+          {context.result && context.result.score !== "" ? <h1>Results</h1> : ""}
           {context.result.score && (
             <h3>
               <span id="score-span">Score:</span> {context.result.score}
             </h3>
           )}
-          {context.result.feedback.length > 0 && (
+          {context.result && context.result.feedback.length > 0 && (
             <ul>
               {context.result.feedback.map((statement, index) => (
                 <li key={index}>

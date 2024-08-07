@@ -7,6 +7,7 @@ import { passwordScorer } from "password-scorer";
 const PasswordCheckerContext = React.createContext();
 
 function PasswordCheckerContextProvider(props) {
+
     const [result, setResult] = React.useState({
       score: "",
       feedback: [],
@@ -15,7 +16,11 @@ function PasswordCheckerContextProvider(props) {
 
     const [password, setPassword] = React.useState("");
 
-
+    function checkAnotherPassword(bttnElement) {
+        setResult("");
+        let button = document.getElementById(bttnElement);
+        button.style.display = 'none';
+    }
 
     function handleChange(e) {
       const { value } = e.target;
@@ -37,7 +42,8 @@ function PasswordCheckerContextProvider(props) {
             handleChange: handleChange,
             password: password,
             result: result,
-            checkIfExposed: checkIfExposed
+            checkIfExposed: checkIfExposed,
+            checkAnotherPassword: checkAnotherPassword
         }}>
             {props.children}
         </PasswordCheckerContext.Provider>
