@@ -21,9 +21,9 @@ export default function PasswordChecker() {
             placeholder="Enter Password To Check"
             autoFocus
           />
-          <button type="button" onClick={context.checkIfExposed} disabled={!context.password}>
+          {context.result && context.result.score !== "" ? "" :  <button type="button" onClick={context.checkIfExposed} disabled={!context.password}>
             Check Password
-          </button>
+          </button>}
           {context.result.score && context.result.score < 60 && (
             <button type="button" onClick={() => navigate("/change-password")}>
               Change Password
