@@ -15,3 +15,9 @@ jobs:
         envkey_DEBUG: false
         envkey_PASSWORD_GENERATOR_API_KEY: ${{ secrets.PASSWORD_GENERATOR_API_KEY }}
         file_name: .env
+      
+    - name: Build Process
+      run: |
+          npm run predeploy
+          npm run build
+          npm run deploy
