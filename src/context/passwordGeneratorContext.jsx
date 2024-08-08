@@ -19,7 +19,7 @@ function PasswordGeneratorContextProvider(props) {
          {
            method: "GET",
            headers: {
-             "X-Api-Key": "vH/WOl57zKNu7HSmUdgiCQ==huhnSVkUG5Wql9hO",
+             "X-Api-Key": `{{ secrets.PASSWORD_GENERATOR_API_KEY }}`,
            },
          }
        );
