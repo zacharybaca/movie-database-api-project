@@ -16,10 +16,8 @@ function PasswordCheckerContextProvider(props) {
 
     const [password, setPassword] = React.useState("");
 
-    function checkAnotherPassword(bttnElement) {
+    function checkAnotherPassword() {
         setResult("");
-        let button = document.getElementById(bttnElement);
-        button.style.display = 'none';
     }
 
     function handleChange(e) {
