@@ -6,7 +6,6 @@
     box-sizing: border-box;
     max-width: 100%;
     min-height: 100vh;
-    border: 4px solid black;
     background-image: url("./assets/password-blocks.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
