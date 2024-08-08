@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Make envfile
-      uses: password-generator-api-project/create-envfile@v1
+      uses: zacharybaca/password-generator-api-project@main
       with:
         envkey_DEBUG: false
         envkey_PASSWORD_GENERATOR_API_KEY: ${{ secrets.PASSWORD_GENERATOR_API_KEY }}
