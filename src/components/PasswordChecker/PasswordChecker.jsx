@@ -29,7 +29,7 @@ export default function PasswordChecker() {
               Change Password
             </button>
           )}
-          {context.result.score && context.result.score < 60 && (
+          {context.result.score && (
             <button type="button" id="check-another-password" onClick={() => context.checkAnotherPassword('check-another-password')}>
               Check Another Password
             </button>
