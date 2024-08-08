@@ -2,6 +2,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
+import config from '../config.js';
+
 import { PasswordCriteriaContext } from "./passwordCriteriaContext";
 
 const PasswordGeneratorContext = React.createContext();
@@ -19,7 +21,7 @@ function PasswordGeneratorContextProvider(props) {
          {
            method: "GET",
            headers: {
-             "X-Api-Key": "vH/WOl57zKNu7HSmUdgiCQ==huhnSVkUG5Wql9hO",
+             "X-Api-Key": `${config.apiKey}`,
            },
          }
        );
