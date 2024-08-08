@@ -1,0 +1,17 @@
+name: Create envfile
+
+on: [push]
+
+jobs:
+
+  create-envfile:
+ 
+    runs-on: ubuntu-18.04
+ 
+    steps:
+    - name: Make envfile
+      uses: password-generator-api-project/create-envfile@v1
+      with:
+        envkey_DEBUG: false
+        envkey_PASSWORD_GENERATOR_API_KEY: ${{ secrets.PASSWORD_GENERATOR_API_KEY }}
+        file_name: .env
