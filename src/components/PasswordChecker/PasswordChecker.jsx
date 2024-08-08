@@ -17,7 +17,7 @@ export default function PasswordChecker() {
             name="password"
             onChange={context.handleChange}
             value={context.password}
-            hidden={context.result.score && context.result.score < 60}
+            hidden={context.result.score}
             placeholder="Enter Password To Check"
             autoFocus
           />
