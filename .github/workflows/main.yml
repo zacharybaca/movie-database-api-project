@@ -1,13 +1,15 @@
 name: Create envfile
 
-on: [push]
+on:
+  push:
+    branches:
+      - 'main'
+      - 'gh-pages'
 
 jobs:
-
   create-envfile:
- 
-    runs-on: ubuntu-18.04
- 
+    runs-on: ubuntu-latest
+
     steps:
     - name: Make envfile
       uses: password-generator-api-project/create-envfile@v1
