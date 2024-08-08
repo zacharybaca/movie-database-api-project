@@ -24,7 +24,7 @@ jobs:
 
       - name: Build the React app
         env:
-          REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
+          PASSWORD_GENERATOR_API_KEY: ${{ secrets.PASSWORD_GENERATOR_API_KEY }}
         run: npm run build
 
       - name: Deploy to GitHub Pages
